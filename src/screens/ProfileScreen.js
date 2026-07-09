@@ -30,11 +30,11 @@ import { clearAllTransactions, getAllTransactions } from "../services/db";
 // In a real app, this would come from a user auth service.
 // For this student project, it is hardcoded as a static object.
 const STUDENT_PROFILE = {
-  name:    "Muhammad Rizky Pratama",
-  nim:     "2210512034",
-  class:   "TI-4A",
-  prodi:   "Teknik Informatika",
-  kampus:  "Universitas Contoh Indonesia",
+  name:    "I Komang Ary Wiguna",
+  nim:     "230040185",
+  class:   "JE244",
+  prodi:   "Teknologi Informasi",
+  kampus:  "Institut Teknologi dan Bisnis Stikom Bali",
   avatar:  "👨‍💻", // Emoji avatar — no image required
 };
 
