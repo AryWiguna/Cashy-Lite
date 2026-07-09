@@ -1,0 +1,12 @@
+/* ============================================================
+   global.css — Tailwind CSS Entry Point for NativeWind v4
+
+   This file is the CSS "input" that Metro processes via
+   withNativeWind. It must include the three standard Tailwind
+   directive layers. NativeWind reads this file at bundle time
+   to generate all the utility styles used in the app.
+   ============================================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

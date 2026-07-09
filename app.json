@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Cashy Lite",
+    "slug": "cashy-lite",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#6C63FF"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.cashylite.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#6C63FF"
+      },
+      "package": "com.cashylite.app"
+    },
+    "web": {
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Cashy Lite memerlukan akses galeri untuk melampirkan foto struk.",
+          "cameraPermission": "Cashy Lite memerlukan akses kamera untuk mengambil foto struk."
+        }
+      ],
+      "expo-sqlite"
+    ]
+  }
+}
