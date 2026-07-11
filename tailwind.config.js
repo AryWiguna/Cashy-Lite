@@ -1,11 +1,3 @@
-// ============================================================
-// tailwind.config.js — NativeWind / Tailwind CSS Configuration
-//
-// NativeWind v4 uses the standard Tailwind config file.
-// The `content` array tells Tailwind which files to scan for
-// className usage so it can generate only the needed styles.
-// ============================================================
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   // Scan all JS/JSX files inside the src folder and root App.js
   content: ["./App.{js,jsx}", "./src/**/*.{js,jsx}"],
