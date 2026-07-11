@@ -1,22 +1,3 @@
-// ============================================================
-// src/navigation/AppNavigator.js — Root Navigation Structure
-//
-// Architecture:
-//   RootStack (Native Stack)
-//   ├── MainTabs (Bottom Tab Navigator)
-//   │   ├── Dashboard   (Tab 1)
-//   │   ├── History     (Tab 2)
-//   │   └── Profile     (Tab 3)
-//   └── AddTransaction  (Stack Screen — modal overlay)
-//
-// Why this structure?
-//   The AddTransaction screen is a STACK screen, not a TAB
-//   screen. This lets it slide up as a modal over the tabs,
-//   which is a standard UX pattern for "add new item" forms.
-//   It's accessed by pressing the FAB (Floating Action Button)
-//   on the Dashboard screen.
-// ============================================================
-
 import React from "react";
 import { View, Text, TouchableOpacity, Platform } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -33,19 +14,6 @@ import AddTransactionScreen from "../screens/AddTransactionScreen";
 const Stack = createNativeStackNavigator();
 const Tab   = createBottomTabNavigator();
 
-// ============================================================
-// TAB BAR ICONS
-// Using Unicode emoji as tab icons to avoid adding an icon
-// library dependency. Keeps the bundle lean and Expo Go safe.
-// ============================================================
-
-/**
- * TabIcon — Renders emoji icon + label for a single tab.
- *
- * @param {string}  emoji   — Emoji character for the icon.
- * @param {string}  label   — Tab label text.
- * @param {boolean} focused — Whether this tab is currently active.
- */
 const TabIcon = ({ emoji, label, focused }) => (
   <View className="items-center justify-center pt-1">
     <Text style={{ fontSize: 22 }}>{emoji}</Text>
