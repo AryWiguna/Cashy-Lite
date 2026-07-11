@@ -1,26 +1,8 @@
-// ============================================================
-// src/components/TransactionCard.js — Transaction List Item
-//
-// Renders a single transaction as a card in both the Dashboard
-// (recent list) and History (full list) screens.
-//
-// Features:
-//  - Category color-coded emoji icon badge
-//  - Receipt thumbnail (if receipt_uri is available)
-//  - Amount formatted with the formatCurrency utility
-//  - Date formatted with the formatDateShort utility
-//  - Subtle shadow and rounded card style via NativeWind
-// ============================================================
-
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { formatCurrency } from "../utils/formatCurrency";
 import { formatDateShort } from "../utils/formatDate";
 
-// ─── Category Configuration ─────────────────────────────────
-// Maps category names to an emoji icon and a background color.
-// This makes it easy to add new categories without touching
-// the component's JSX logic.
 const CATEGORY_CONFIG = {
   Makanan:       { emoji: "🍜", bg: "bg-orange-100", text: "text-orange-600" },
   Transportasi:  { emoji: "🚌", bg: "bg-blue-100",   text: "text-blue-600"   },
@@ -35,18 +17,6 @@ const CATEGORY_CONFIG = {
 // Fallback config for unknown categories
 const DEFAULT_CATEGORY = { emoji: "💰", bg: "bg-gray-100", text: "text-gray-600" };
 
-/**
- * TransactionCard Component
- *
- * @param {Object}   transaction           — Full transaction row object from SQLite.
- * @param {number}   transaction.id
- * @param {string}   transaction.title
- * @param {number}   transaction.amount
- * @param {string}   transaction.category
- * @param {string}   transaction.date
- * @param {string|null} transaction.receipt_uri
- * @param {function} [onPress]             — Optional tap handler for the card.
- */
 const TransactionCard = ({ transaction, onPress }) => {
   const { title, amount, category, date, receipt_uri } = transaction;
 
