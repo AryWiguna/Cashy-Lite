@@ -1,18 +1,3 @@
-// ============================================================
-// src/screens/DashboardScreen.js — Tab 1: Home / Dashboard
-//
-// What this screen shows:
-//  1. A purple gradient summary card with total spending this month
-//  2. A quick-add FAB (Floating Action Button) → opens AddTransaction
-//  3. A horizontal category shortcut strip
-//  4. The 5 most recent transactions as TransactionCard items
-//
-// Data Flow:
-//  - On mount & every time the screen is focused (useFocusEffect),
-//    it re-fetches data from SQLite so the list stays fresh after
-//    adding a new transaction.
-// ============================================================
-
 import React, { useState, useCallback } from "react";
 import {
   View,
