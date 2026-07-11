@@ -1,16 +1,3 @@
-// ============================================================
-// src/screens/ProfileScreen.js — Tab 3: Profile & Settings
-//
-// Two sections:
-//  1. Student Profile Card — Static info (Nama, NIM, Kelas)
-//  2. App Info Section — Version and tech stack credits
-//  3. Danger Zone — Reset/clear the entire database
-//
-// The "Danger Zone" button is specifically designed with a red
-// color and a confirmation dialog to prevent accidental data
-// loss during live demos.
-// ============================================================
-
 import React, { useState, useCallback } from "react";
 import {
   View,
@@ -27,8 +14,6 @@ import CustomButton from "../components/CustomButton";
 import { clearAllTransactions, getAllTransactions } from "../services/db";
 
 // ─── Static Profile Data ─────────────────────────────────────
-// In a real app, this would come from a user auth service.
-// For this student project, it is hardcoded as a static object.
 const STUDENT_PROFILE = {
   name:    "I Komang Ary Wiguna",
   nim:     "230040185",
@@ -66,14 +51,6 @@ const ProfileScreen = () => {
   const [isClearing, setIsClearing] = useState(false);
 
   // ─── Danger Zone: Clear DB ──────────────────────────────────
-
-  /**
-   * handleClearDatabase()
-   * Shows a two-step confirmation before clearing all rows.
-   * Step 1: First Alert — "Are you sure?"
-   * Step 2: Second Alert — "Are you REALLY sure?" (double confirm)
-   * This prevents accidental wipes during live demos.
-   */
   const handleClearDatabase = useCallback(() => {
     // First confirmation
     Alert.alert(
