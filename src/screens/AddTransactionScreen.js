@@ -1,24 +1,3 @@
-// ============================================================
-// src/screens/AddTransactionScreen.js — Stack Modal: Add Transaction
-//
-// This screen is presented as a MODAL over the tab navigator.
-// It provides a full form for recording a new expense with:
-//   - Title (TextInput)
-//   - Amount (numeric TextInput)
-//   - Category (custom picker using TouchableOpacity grid)
-//   - Date (TextInput pre-filled with today's date)
-//   - Receipt Image (expo-image-picker — camera or gallery)
-//
-// CRITICAL DESIGN DECISION: 
-//   We save ONLY the image URI string to SQLite — NOT the base64
-//   data or BLOB. Saving image data to SQLite would:
-//     a) Massively inflate the database file size
-//     b) Cause performance issues when reading transaction lists
-//   The local URI (e.g., file:///var/mobile/...) is stable for
-//   the lifetime of the app installation and can be used directly
-//   as an Image `source` prop.
-// ============================================================
-
 import React, { useState, useCallback } from "react";
 import {
   View,
@@ -65,14 +44,6 @@ const AddTransactionScreen = ({ navigation }) => {
   const [isSaving,    setIsSaving]    = useState(false);
 
   // ─── Image Picker Logic ─────────────────────────────────────
-
-  /**
-   * handlePickImage(source)
-   * Opens either the camera or the image library.
-   * After selection, saves ONLY the uri string to state.
-   *
-   * @param {"camera" | "library"} source
-   */
   const handlePickImage = useCallback(async (source) => {
     try {
       let result;
@@ -148,12 +119,6 @@ const AddTransactionScreen = ({ navigation }) => {
   }, [handlePickImage]);
 
   // ─── Form Validation ────────────────────────────────────────
-
-  /**
-   * validateForm()
-   * Checks all required fields before submission.
-   * @returns {boolean} True if form is valid.
-   */
   const validateForm = useCallback(() => {
     if (!title.trim()) {
       Alert.alert("Validasi", "Judul transaksi tidak boleh kosong.");
@@ -175,12 +140,6 @@ const AddTransactionScreen = ({ navigation }) => {
   }, [title, amount, category, date]);
 
   // ─── Submit Handler ─────────────────────────────────────────
-
-  /**
-   * handleSubmit()
-   * Validates the form, inserts the record into SQLite, and
-   * navigates back to the Dashboard tab.
-   */
   const handleSubmit = useCallback(() => {
     if (!validateForm()) return;
 
