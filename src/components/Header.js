@@ -1,31 +1,9 @@
-// ============================================================
-// src/components/Header.js — Reusable Screen Header Component
-//
-// A consistent top-of-screen header used across all screens.
-// Accepts a title, optional subtitle, and optional right-side
-// action element (e.g., a button or icon).
-//
-// Uses NativeWind className props for styling. The `styled()`
-// wrapper from NativeWind is NOT needed in v4 — className
-// works directly on core RN components via the babel transform.
-// ============================================================
-
 import React from "react";
 import { View, Text, StatusBar } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-/**
- * Header Component
- *
- * @param {string}      title       — Primary header title text (required).
- * @param {string}      [subtitle]  — Secondary smaller text below title.
- * @param {ReactNode}   [rightElement] — Optional component on the right side.
- * @param {string}      [variant]   — "primary" (purple bg) | "white" (white bg).
- */
 const Header = ({ title, subtitle, rightElement, variant = "primary" }) => {
-  // useSafeAreaInsets gives us the device-safe padding values.
-  // We apply the top inset as padding to avoid the status bar
-  // overlapping our header content on notched devices.
+  
   const insets = useSafeAreaInsets();
 
   const isPrimary = variant === "primary";
