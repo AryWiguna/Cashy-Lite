@@ -1,16 +1,3 @@
-// ============================================================
-// src/screens/HistoryScreen.js — Tab 2: Full Transaction History
-//
-// Displays ALL transactions from SQLite in a scrollable FlatList.
-// Features:
-//  - Search bar to filter by title or category
-//  - FlatList with TransactionCard items (virtualized scrolling)
-//  - Receipt thumbnail visible on each card (if available)
-//  - useFocusEffect for auto-refresh when tab is focused
-//  - Pull-to-refresh
-//  - Empty state illustration
-// ============================================================
-
 import React, { useState, useCallback } from "react";
 import {
   View,
@@ -77,27 +64,12 @@ const HistoryScreen = () => {
     : allTransactions;
 
   // ─── FlatList Renderers ─────────────────────────────────────
-
-  /**
-   * renderItem — Renders a single TransactionCard for each list item.
-   * FlatList calls this for every visible item.
-   *
-   * @param {{ item: Object }} — Destructured FlatList render callback.
-   */
   const renderItem = useCallback(({ item }) => (
     <TransactionCard transaction={item} />
   ), []);
 
-  /**
-   * keyExtractor — Provides a unique string key per list item.
-   * Using the database `id` field ensures stability.
-   */
   const keyExtractor = useCallback((item) => item.id.toString(), []);
 
-  /**
-   * ListHeaderComponent — Rendered above all list items.
-   * Contains the search bar and the result count.
-   */
   const ListHeader = (
     <View className="px-4 pt-2 pb-4">
       {/* ── Search Bar ── */}
@@ -138,9 +110,6 @@ const HistoryScreen = () => {
     </View>
   );
 
-  /**
-   * ListEmptyComponent — Shown when filteredTransactions is empty.
-   */
   const ListEmpty = (
     <View className="items-center justify-center py-16 px-8">
       <Text style={{ fontSize: 56 }}>
