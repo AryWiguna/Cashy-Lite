@@ -1,18 +1,3 @@
-// ============================================================
-// App.js — Application Root Entry Point
-//
-// Responsibilities:
-//  1. Import the global NativeWind CSS (required for v4)
-//  2. Initialize the SQLite database schema on first launch
-//  3. Set up React Navigation providers (SafeArea, etc.)
-//  4. Render the root AppNavigator
-//
-// CRITICAL: The `import "./global.css"` line MUST be the first
-// import in this file. NativeWind v4 requires the CSS to be
-// registered before any styled components are rendered.
-// ============================================================
-
-// ── Step 1: Import NativeWind global CSS FIRST ──────────────
 import "./global.css";
 
 import React, { useEffect, useState } from "react";
@@ -28,9 +13,6 @@ import { initDB }   from "./src/services/db";
 // App Component
 // ============================================================
 export default function App() {
-  // Track whether the database has been initialized yet.
-  // We show a loading screen while initDB() runs to prevent
-  // any screen from trying to query before the table exists.
   const [dbReady, setDbReady]   = useState(false);
   const [dbError, setDbError]   = useState(null);
 
